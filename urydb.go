@@ -2,10 +2,11 @@ package urydb
 
 import (
 	"bufio"
-	"database/sql"
 	"errors"
-	_ "github.com/lib/pq"
 	"os"
+
+	"github.com/jmoiron/sqlx"
+	_ "github.com/lib/pq"
 )
 
 var (
@@ -66,11 +67,11 @@ func getConnStringFile() (connString string, err error) {
 }
 
 // GetDB returns a pointer to an open URY database connection
-func GetDB() (*sql.DB, error) {
+func GetDB() (*sqlx.DB, error) {
 	connString, err := getConnString()
 	if err != nil {
 		return nil, err
 	}
 
-	return sql.Open("postgres", connString)
+	return sqlx.Open("postgres", connString)
 }
