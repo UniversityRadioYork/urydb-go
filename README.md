@@ -1,6 +1,6 @@
 # URYdb-go
 
-A tiny package that looks for URTY database connection URLs in a few places and returns an open sql.DB instance.
+A tiny package that looks for URY database connection URLs in a few places and returns an open sql.DB instance.
 
 ## Usage
 ```go
